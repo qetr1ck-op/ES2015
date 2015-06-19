@@ -1,27 +1,17 @@
 //Simple function expression with params
 
-'use strict';
-
-var arrowGreeting = function arrowGreeting(name, message) {
-    return name + ' ' + message;
-}; //Sam Howdy
+const arrowGreeting = (name, message) => name + ' ' + message;
 
 //Easy array filtering, mapping...
 
-var arr = [5, 6, 13, 0, 1, 18, 23];
-var sum = arr.reduce(function (a, b) {
-    return a + b;
-}); // 66
-var even = arr.filter(function (v) {
-    return v % 2 == 0;
-}); // [6, 0, 18]
-var double = arr.map(function (v) {
-    return v * 2;
-}); // [10, 12, 26, 0, 2, 36, 46]
+const arr = [5, 6, 13, 0, 1, 18, 27];
+const sum = arr.reduce((a, b) => a + b);  // 66
+const even = arr.filter(v => v % 2 == 0); // [6, 0, 18]
+const double = arr.map(v => v * 2);       // [10, 12, 26, 0, 2, 36, 46]
 
 //With constructors
 
-var PersonWithSelf = function PersonWithSelf() {
+const PersonWithSelf = function() {
     var self = this; // save 'this' as link.
 
     self.age = 0;
@@ -38,28 +28,24 @@ var PersonWithSelf = function PersonWithSelf() {
     }, 1000);
 };
 
-var PersonWithBind = function PersonWithBind() {
+const PersonWithBind = function() {
     this.age = 0;
 
-    setInterval((function growUp() {
+    setInterval(function growUp() {
         // The callback refers to the `self` variable of which
         // the value is the expected object.
         console.log(this.age++);
-    }).bind(this), 1000);
+    }.bind(this), 1000);
 };
 
-var PersonWithArrow = function PersonWithArrow() {
-    var _this = this;
-
+const PersonWithArrow = function() {
     this.age = 0;
 
-    setInterval(function () {
-        console.log(_this.age++); // 'this' properly refers to the person object
+    setInterval(() => {
+        console.log(this.age++); // 'this' properly refers to the person object
     }, 1000);
 };
 
 var p1 = new PersonWithSelf();
 var p2 = new PersonWithBind();
 var p3 = new PersonWithArrow();
-
-//# sourceMappingURL=arrow_functions-compiled.js.map

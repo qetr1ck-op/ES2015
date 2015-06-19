@@ -4,11 +4,11 @@
 
 var arrowGreeting = function arrowGreeting(name, message) {
     return name + ' ' + message;
-}; //Sam Howdy
+};
 
 //Easy array filtering, mapping...
 
-var arr = [5, 6, 13, 0, 1, 18, 23];
+var arr = [5, 6, 13, 0, 1, 18, 27];
 var sum = arr.reduce(function (a, b) {
     return a + b;
 }); // 66
@@ -61,7 +61,3 @@ var PersonWithArrow = function PersonWithArrow() {
 var p1 = new PersonWithSelf();
 var p2 = new PersonWithBind();
 var p3 = new PersonWithArrow();
-
-//# sourceMappingURL=arrow_functions-compiled.js.map
-
-//# sourceMappingURL=arrow_functions-compiled-compiled.js.map
