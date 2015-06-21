@@ -1,3 +1,6 @@
+//An arrow function expression has a shorter syntax than function expressions
+//and lexically bind "this". Arrow function are always anonymous.
+
 //Simple function expression with params
 
 const arrowGreeting = (name, message) => name + ' ' + message;
