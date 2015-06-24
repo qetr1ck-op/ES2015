@@ -6,51 +6,57 @@
 
 //Class declaration
 
-class Polygon {
-    constructor(height, width) {
-        this.height = height;
-        this.width = width;
+class Animal {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
     }
 
-    getSquare() {
-        return this.height * this.width;
+    getName() {
+        return this.name;
     }
-};
+}
+;
 
 //need to remember that class declarations are not hoisted
-//var p = new Polygon(); reference error //hoisting is not working:(
-//class Polygon {...}
+//var p = new Animal(); reference error //hoisting is not working:(
+//class Animal {...}
 
 //Class expression
 
-/*var Polygon = class {
-//or named
-//var Polygon = Polygon class {
-    constructor(height, width) { //there can be only one "constructor" method
-        this.height = height;
-        this.width = width;
-    }
-};*/
+/*var Animal = class {
+ //or named
+ //var Animal = Animal class {
+ constructor(name, age) { //there can be only one "constructor" method
+ this.name = name;
+ this.age = age;
+ }
+ //...prototype methods
+ };*/
 
 //class inheritance
 
-class Area extends Polygon {
-    constructor (height, width) {
-        super(height, width);
+class Rabbit extends Animal {
+    constructor(name, age, jumpHeight ) {
+        super(name, age);
+
+        this.jumpHeight = jumpHeight || 3;
     }
 
     //overriding
-    getSquare() {
-        var square = super.getSquare();
-        
-        return square * 2;
+    getName() {
+        var name = super.getName();
+        return 'rabbit name is ' + name;
     }
 
-    doSomething() {
-        console.log('do something');
+    jump() {
+        console.log(super.getName() + ' jumps for ' + this.jumpHeight + ' meters');
     }
 }
 
-var area = new Area(10,5);
+var rabbit = new Rabbit('Banky', 2);
+rabbit.jump(); //Banky jumps for 3 meters
 
-console.log(area);
+console.log(rabbit instanceof Rabbit); //true
+console.log(rabbit instanceof Animal); //true
+
